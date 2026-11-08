@@ -2,11 +2,19 @@
 
 [English](README.en.md)
 
+**让 AI 写作和 Word 审阅接得起来：选中原文、写下要求、比较建议，再应用为修订。**
+
 文澄是面向中英文 DOCX 的本地写作与审阅工作台。它把精确选区、修改指令、模型建议和 Word 批注修订连接起来，帮助作者减少重复交代、机械强调和生硬表达，同时保留原文的论点、术语、引用与不确定性。
 
 可以让 Codex 或 Claude Code 在当前对话里调用 skill，也可以在浏览器侧栏调用已配置的模型。两条路径共用同一组标记和文档版本。文澄不提供“AI 含量”评分，也不承诺规避检测。
 
 当前版本为早期候选版。Windows 上已完成实际浏览器、Codex CLI 和 Microsoft Word 验收；其他系统与最低 Python 版本的验证状态见[验收概览](docs/VALIDATION.md)。
+
+[安装 skill](#通过-skillssh-安装) · [下载运行包](https://github.com/yc13665193882-source/wencheng/releases/tag/v0.1.0-rc.1) · [图文演示](docs/DEMO.md) · [反馈问题](https://github.com/yc13665193882-source/wencheng/issues)
+
+![文澄中文演示：精确标注、比较建议、应用为 Word 修订](docs/media/wencheng-demo-zh.gif)
+
+真实操作截图轮播，使用合成双语样例；建议由当前对话生成后导入。轮播时长不代表模型响应速度。[查看静态截图和英文演示](docs/DEMO.md)。如果这个流程对你有用，欢迎 Star，方便以后找到项目。
 
 ## 能做什么
 
@@ -17,7 +25,33 @@
 - **文风与写作检查**：保存文档语言、术语规则和文风样本，检查空泛强调、重复转折等候选问题。判断结果供作者审阅，不代表原句一定需要修改。
 - **三种阅读视图**：可选区的审阅视图、辅助版式预览、由用户上传 Word PDF 的校样视图。界面可在中文和英文之间切换，文档内容与界面语言独立。
 
-## 从运行包启动
+## 通过 skills.sh 安装
+
+需要 **Python 3.11+** 和 **Node.js 22.20+**。在准备使用 skill 的项目目录中执行，以下命令安装到当前项目，不改全局 skill：
+
+```text
+npx skills add yc13665193882-source/wencheng --skill wencheng --agent codex --copy --yes
+python .agents/skills/wencheng/scripts/wencheng.py setup
+python .agents/skills/wencheng/scripts/wencheng.py start --open
+```
+
+Claude Code 使用：
+
+```text
+npx skills add yc13665193882-source/wencheng --skill wencheng --agent claude-code --copy --yes
+python .claude/skills/wencheng/scripts/wencheng.py setup
+python .claude/skills/wencheng/scripts/wencheng.py start --open
+```
+
+若系统命令是 `python3`，请相应替换。第一步通过 [skills CLI](https://github.com/vercel-labs/skills) 安装 skill；第二步下载固定的 `v0.1.0-rc.1` 运行包、核对 SHA256，并在 `~/.wencheng/app-0.1.0-rc.1` 创建应用和 Python 虚拟环境。首次需要访问 npm、GitHub 和 Python 包源。运行包已包含前端，之后使用应用不需要 Node.js。
+
+安装后重新加载 skill 或开启新对话，试试：
+
+> 使用 $wencheng，按这份提纲写一份中文测试方案，逐段保存并打开实时预览。没有证据的地方不要编造实验结果。
+
+使用自定义应用目录、绑定已有安装或更新 skill，见[完整安装说明](skills/wencheng/references/installation.md)。`npx skills update` 只更新 skill；自定义应用目录在更新后可能需要重新绑定。[安装验收记录](docs/launch/INSTALLATION-VALIDATION.md)列出了实际验证的环境和流程。
+
+## 从运行包启动（不使用 Node.js）
 
 从本仓库 [Releases](https://github.com/yc13665193882-source/wencheng/releases) 下载预构建运行 ZIP，解压到准备长期保留的目录。运行包包含浏览器构建，**不需要 Node.js**；需要 Python 3.11 或更新版本，首次安装依赖需要联网。
 
@@ -39,7 +73,7 @@ Windows 双击 `start.cmd`。macOS／Linux 使用：
 
 GitHub 自动生成的 Source code 压缩包是源码包，不含预构建页面；请按下方开发步骤构建。
 
-## 安装 skill
+## 从已有应用安装 skill
 
 先完成应用安装，再从应用目录选择需要的目标：
 
@@ -124,7 +158,7 @@ node --experimental-strip-types --test frontend/tests/*.test.ts
 npm run build
 ```
 
-公开仓库保留合成 DOCX fixtures 和自动化检查；开发期间的真实论文副本、私人项目、模型调用产物及本机截图不随仓库或运行包分发。
+公开仓库保留合成 DOCX fixtures、自动化检查和合成内容的界面演示。开发期间的真实论文副本、私人项目、模型调用产物及私人验收截图不随仓库或运行包分发。
 
 ## 许可证
 

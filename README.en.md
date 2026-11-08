@@ -2,11 +2,19 @@
 
 [中文](README.md)
 
+**Bring AI writing into a reviewable Word workflow: select a passage, request an edit, compare the suggestion, and apply it as a tracked change.**
+
 Wencheng is a local writing and review workspace for Chinese and English DOCX documents. It connects exact text selections, editing instructions, model suggestions, and native Word comments and tracked changes. The aim is to reduce repetitive framing, empty emphasis, and stiff phrasing while preserving the author's claims, terminology, citations, and uncertainty.
 
 Use its skill from a Codex or Claude Code conversation, or call a configured model from the browser sidebar. Both paths share annotations and document versions. Wencheng does not score “AI content” or promise to evade detection.
 
 This is an early release candidate. Browser workflows, Codex CLI, and Microsoft Word have been exercised on Windows. See [validation coverage](docs/VALIDATION.md) for platform and minimum-version limits.
+
+[Install the skill](#install-through-skillssh) · [Download the runtime](https://github.com/yc13665193882-source/wencheng/releases/tag/v0.1.0-rc.1) · [Demo walkthrough](docs/DEMO.md) · [Report an issue](https://github.com/yc13665193882-source/wencheng/issues)
+
+![Wencheng in English: annotate a selection, compare a suggestion, apply a Word tracked change](docs/media/wencheng-demo-en.gif)
+
+A slideshow of actual UI captures using synthetic sample text. Suggestions were generated in the current conversation and then imported; playback timing does not represent model latency. [Static screenshots and Chinese demo](docs/DEMO.md). If this workflow is useful to you, a Star helps you find the project again.
 
 ## Features
 
@@ -17,7 +25,33 @@ This is an early release candidate. Browser workflows, Codex CLI, and Microsoft 
 - **Style guidance and writing checks:** save the document language, terminology rules, and style samples. Review candidate issues such as empty emphasis and repeated transitions; a flag is not a verdict that the sentence must change.
 - **Three reading views:** an interactive review view, an approximate layout preview, and a proof view for a user-supplied Word PDF. Chinese and English UI settings are independent of document language.
 
-## Start from the runtime ZIP
+## Install through skills.sh
+
+Requires **Python 3.11+** and **Node.js 22.20+**. Run these commands from the project where you want to use the skill. This installs into that project, without changing global skills:
+
+```text
+npx skills add yc13665193882-source/wencheng --skill wencheng --agent codex --copy --yes
+python .agents/skills/wencheng/scripts/wencheng.py setup
+python .agents/skills/wencheng/scripts/wencheng.py start --open
+```
+
+For Claude Code:
+
+```text
+npx skills add yc13665193882-source/wencheng --skill wencheng --agent claude-code --copy --yes
+python .claude/skills/wencheng/scripts/wencheng.py setup
+python .claude/skills/wencheng/scripts/wencheng.py start --open
+```
+
+Substitute `python3` if needed. The first command uses the [skills CLI](https://github.com/vercel-labs/skills) to install the skill. The second downloads the pinned `v0.1.0-rc.1` runtime, verifies its SHA256, and sets up the application and a Python virtual environment at `~/.wencheng/app-0.1.0-rc.1`. Initial setup needs access to npm, GitHub, and a Python package index. The frontend is prebuilt; running the application afterward does not require Node.js.
+
+Reload skills or start a new conversation, then try:
+
+> Use $wencheng to draft an English test plan from this outline. Save each completed paragraph and open a live preview. Do not invent experimental results where evidence is missing.
+
+See [installation details](skills/wencheng/references/installation.md) for custom application directories, existing installations, and updates. `npx skills update` only updates the skill; a custom application location may need rebinding afterward. The [installation report](docs/launch/INSTALLATION-VALIDATION.md) records the tested environment and workflow.
+
+## Start from the runtime ZIP (without Node.js)
 
 Download the prebuilt runtime ZIP from this repository's [Releases](https://github.com/yc13665193882-source/wencheng/releases) and extract it to a directory you intend to keep. It includes the browser build, so **Node.js is not required**. Python 3.11 or later is required; initial dependency installation needs network access.
 
@@ -39,7 +73,7 @@ The browser address is `http://127.0.0.1:8765`. Add `--port PORT` to the start c
 
 GitHub's automatically generated Source code archives do not include the browser build. Follow the source-development steps below for those archives.
 
-## Install the skill
+## Install the skill from an existing application
 
 Set up the application first, then choose the relevant destination from its directory:
 
@@ -124,7 +158,7 @@ node --experimental-strip-types --test frontend/tests/*.test.ts
 npm run build
 ```
 
-The public repository includes synthetic DOCX fixtures and automated checks. Third-party paper copies, private projects, model-run artifacts, and local acceptance screenshots are not distributed in the repository or runtime ZIP.
+The public repository includes synthetic DOCX fixtures, automated checks, and UI demonstrations using synthetic content. Third-party paper copies, private projects, model-run artifacts, and private acceptance screenshots are not distributed in the repository or runtime ZIP.
 
 ## License
 

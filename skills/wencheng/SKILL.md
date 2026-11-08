@@ -12,6 +12,10 @@ Keep a formal, natural voice and make the smallest change that solves the stated
 
 Resolve `SKILL_DIR` to the directory containing this loaded `SKILL.md`, then use
 its bundled launcher. Replace `<SKILL_DIR>` in examples with that absolute path.
+For first use after a skills CLI installation, an application-not-found error,
+a moved application, or missing dependencies, follow
+[installation.md](references/installation.md) before launching. Its explicit
+`setup` command installs the checksum-verified runtime and binds this skill to it.
 For a document created in this conversation, follow **New writing** below;
 its final `open` command starts the service and opens that document directly.
 Use the following startup flow when opening the workspace before choosing a document:
@@ -32,11 +36,10 @@ text, and attach an instruction. The sidebar can call a configured model directl
 the workflow below uses the current conversation instead.
 
 The launcher uses `WENCHENG_ROOT` when set, otherwise the installer's local
-application binding, the source skill location, or a surrounding workspace.
+application binding, the source skill location, a surrounding workspace, or the
+standard runtime installed by `setup`.
 It uses the application's `.venv` Python when available and dispatches to the
-shared CLI; all entry points use the same projects. For first-time installation,
-a moved application, or missing dependencies, read
-[installation.md](references/installation.md).
+shared CLI; all entry points use the same projects.
 
 ## Apply annotations in this conversation
 
