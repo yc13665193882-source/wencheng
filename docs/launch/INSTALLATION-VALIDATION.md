@@ -4,7 +4,9 @@ Validated on 2026-11-08 using Windows, Python 3.13.13, Node.js 24.20.0 and the o
 
 ## Result
 
-**Local-source installation: 21 checks passed.** The test used the actual skills CLI, a new project outside the source checkout, and a newly downloaded public runtime ZIP. It created a new virtual environment in a path containing Chinese characters and spaces. It did not reuse the developer application's Python environment.
+**Public GitHub installation: 20 checks passed. Local-source installation: 21 checks passed.** Both runs used the actual skills CLI, a new project outside the source checkout, and a newly downloaded public runtime ZIP. Each created a new virtual environment in a path containing Chinese characters and spaces. Neither reused the developer application's Python environment. The local run has one additional check comparing the copied launcher directly with the local source file.
+
+The public-source run installed `yc13665193882-source/wencheng` after [commit `a69baf2`](https://github.com/yc13665193882-source/wencheng/commit/a69baf22f988d85bdf9ba04e33866ca58985dbed) was published. It completed at 13:20 UTC on 2026-11-08. The installed launcher SHA256 matched that commit's source: `e01de36778f2fe3a9b1ac01cffc530c7740e1f1e7dc7825231d14c05afdf0763`. The associated [GitHub Actions run](https://github.com/yc13665193882-source/wencheng/actions/runs/42484403244) passed all five jobs.
 
 | Area | Verified behavior |
 | --- | --- |
@@ -17,7 +19,7 @@ Validated on 2026-11-08 using Windows, Python 3.13.13, Node.js 24.20.0 and the o
 | Export | Acceptance produced native Word insertion and deletion elements; English text remained intact. The CLI export and HTTP download were byte-identical. |
 | Second agent | The Claude Code skill copy bound to the same application and listed the same project. |
 
-The first GitHub release download returned HTTP 503. A second attempt from a new workspace completed successfully. No alternate download source or checksum bypass was used.
+The first local-source run's GitHub release download returned HTTP 503. A second attempt from a new workspace completed successfully. The later public-source run passed on its first attempt. No alternate download source or checksum bypass was used.
 
 This is an installation and document-workflow check. Suggestions were supplied deterministically, with **no model calls**. It does not establish a new real-Claude acceptance result or a new Word visual-layout result. See the existing [validation overview](../VALIDATION.md) for those separate checks.
 
@@ -33,7 +35,7 @@ From the source checkout:
 python scripts/smoke_skills_install.py --output test-output/skills-install-smoke-local.json
 ```
 
-After the adapted skill is published, verify the public repository path with:
+To verify installation directly from the public repository:
 
 ```sh
 python scripts/smoke_skills_install.py --source yc13665193882-source/wencheng --output test-output/skills-install-smoke-remote.json
@@ -41,6 +43,6 @@ python scripts/smoke_skills_install.py --source yc13665193882-source/wencheng --
 
 The script pins `skills@1.7.6`, requests only `wencheng`, selects `codex` and `claude-code`, and uses `--copy --yes` in a fresh project directory. Each run creates a fresh application rather than modifying the user's standard installation. Add `--python PATH` to select the Python interpreter used for setup.
 
-Current evidence covers the local-source command. Public `owner/repo` installation must be recorded separately after the adapted skill reaches GitHub; listing compatibility is not a claim that skills.sh has already indexed or ranked the project.
+The recorded reports are `test-output/skills-install-smoke-local.json` and `test-output/skills-install-smoke-remote.json`. Detailed remote-run logs are in `test-output/wencheng-skills-smoke-4aw4g46s/`. Public `owner/repo` installation is verified; this is not a claim that skills.sh has already indexed or ranked the project.
 
 Official references: [skills CLI](https://github.com/vercel-labs/skills), [skills.sh listing and telemetry FAQ](https://www.skills.sh/docs/faq).
