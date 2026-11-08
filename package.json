@@ -1,0 +1,35 @@
+{
+  "name": "wencheng",
+  "version": "0.1.0-rc.1",
+  "private": true,
+  "description": "Local bilingual DOCX review workspace",
+  "scripts": {
+    "dev": "vite --config frontend/vite.config.ts",
+    "build": "tsc -p frontend/tsconfig.json && vite build --config frontend/vite.config.ts",
+    "start": "python scripts/wencheng.py start",
+    "test": "python -m unittest discover -s tests -v"
+  },
+  "dependencies": {
+    "docx-preview": "0.3.7",
+    "lucide-react": "^0.468.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.1.0",
+    "@xmldom/xmldom": "^0.9.12",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.2"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yc13665193882-source/wencheng.git"
+  }
+}

@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.venv/
+__pycache__/
+*.pyc
+.wencheng/
+.env
+test-output/
+acceptance/
+releases/
+release/
+*.log
+.env.*
+wencheng-install.json

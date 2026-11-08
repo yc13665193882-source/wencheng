@@ -1,0 +1,156 @@
+{
+  "schema": "wencheng.complex-fixture.v1",
+  "fixture": "complex-academic.docx",
+  "synthetic": true,
+  "expected_pages": 5,
+  "page_plan": [
+    "portrait introduction",
+    "portrait methods equations image",
+    "landscape merged table",
+    "portrait discussion reviews",
+    "portrait numbered references and endnote"
+  ],
+  "editable_cases": [
+    {
+      "id": "body_zh",
+      "location": "body",
+      "paragraph_text": "值得注意的是，合成样本的平均误差为 0.24，结果可能受采样间隔影响[1]。",
+      "quote": "值得注意的是，",
+      "replacement": "",
+      "expected_paragraph": "合成样本的平均误差为 0.24，结果可能受采样间隔影响[1]。",
+      "instruction": "仅做所示局部精简，保留数字、引文、限定语与段落结构。"
+    },
+    {
+      "id": "table_en",
+      "location": "table",
+      "paragraph_text": "It is important to note that this synthetic row remains stable.",
+      "quote": "It is important to note that this",
+      "replacement": "This",
+      "expected_paragraph": "This synthetic row remains stable.",
+      "instruction": "仅做所示局部精简，保留数字、引文、限定语与段落结构。"
+    },
+    {
+      "id": "body_en",
+      "location": "body",
+      "paragraph_text": "As previously mentioned, the synthetic estimate may change with the sampling interval (Fixture Author, 2024).",
+      "quote": "As previously mentioned, the",
+      "replacement": "The",
+      "expected_paragraph": "The synthetic estimate may change with the sampling interval (Fixture Author, 2024).",
+      "instruction": "仅做所示局部精简，保留数字、引文、限定语与段落结构。"
+    },
+    {
+      "id": "body_review_neighbor",
+      "location": "body",
+      "paragraph_text": "需要强调的是，本段只检查普通正文修改，不改变已有审阅轨迹。",
+      "quote": "需要强调的是，",
+      "replacement": "",
+      "expected_paragraph": "本段只检查普通正文修改，不改变已有审阅轨迹。",
+      "instruction": "仅做所示局部精简，保留数字、引文、限定语与段落结构。"
+    }
+  ],
+  "preserve_parts": [
+    {
+      "part": "word/comments.xml",
+      "sha256": "6b6ca207621de1cac5372f27bfc4505e3552621b7a54200eec5126c6f1701607"
+    },
+    {
+      "part": "word/endnotes.xml",
+      "sha256": "d74c25daa8d6ce7035a99e84d7f9d370977fa5a91e1cc88a9b36df31c3641eea"
+    },
+    {
+      "part": "word/footer1.xml",
+      "sha256": "2dc07bd945dbb1828496fd55ee44387e39e10d9618e30df31ee8afd37526eda3"
+    },
+    {
+      "part": "word/footnotes.xml",
+      "sha256": "a44a40272ed3e3f430bd5bce45575a6d82f5290967aff0edc9a2fb75eb21aad7"
+    },
+    {
+      "part": "word/header1.xml",
+      "sha256": "43b23674d574e764bacc86d6c1326af9fc5dcc01513c26df94dc017be62a38df"
+    },
+    {
+      "part": "word/media/image1.png",
+      "sha256": "24e45b59c3534c015eb04d0bc974fa0629c30b034f5ca5beda312c7ad4f06b2b"
+    }
+  ],
+  "protected_objects": {
+    "inline_math_count": 1,
+    "display_math_count": 1,
+    "fraction_count": 1,
+    "subscript_count": 3,
+    "subsuperscript_count": 1,
+    "footnote_ids": [
+      "1"
+    ],
+    "endnote_ids": [
+      "1"
+    ],
+    "comment_ids": [
+      "7"
+    ],
+    "bookmark_names": [
+      "FixtureFigure",
+      "FixtureTable"
+    ],
+    "field_instructions": [
+      "SEQ Figure \\* ARABIC",
+      "SEQ Table \\* ARABIC",
+      "REF FixtureFigure \\h",
+      "PAGEREF FixtureFigure \\h",
+      "REF FixtureTable \\h",
+      "PAGEREF FixtureTable \\h"
+    ],
+    "footer_field_instructions": [
+      "PAGE",
+      "NUMPAGES"
+    ],
+    "original_revisions": [
+      {
+        "type": "del",
+        "id": "900",
+        "text": "已经证实"
+      },
+      {
+        "type": "ins",
+        "id": "901",
+        "text": "尚待验证"
+      }
+    ],
+    "reference_heading": "6 参考文献",
+    "reference_entries": [
+      "[1] Fixture Author A. Synthetic reference for numeric citation testing. Fixture Journal, 2024, 1: 1–2. 合成条目，不对应真实文献。",
+      "[2] Fixture Author B, Fixture Author C. Preserving notes and mathematical objects in a test document. Test Proceedings, 2024: 3–4. Synthetic reference only.",
+      "[3] 示例作者甲. 用于检查中文参考文献格式的合成条目. 测试文献集, 2024, 2: 5–6. 本条目不代表真实发表记录。",
+      "[4] 示例作者乙. 用于检查交叉引用和分节的合成条目. 文档测试记录, 2024, 3: 7–8. 本条目不代表真实发表记录。",
+      "Fixture Author. (2024). An invented author-year reference used only for preservation testing. Synthetic Documentation Series, 1, 9–10."
+    ],
+    "citation_texts": [
+      "[1]",
+      "[1, 2]",
+      "[2–4]",
+      "(Fixture Author, 2024)"
+    ],
+    "table_count": 1,
+    "table_rows": 9,
+    "table_grid_columns": 6,
+    "section_count": 3,
+    "section_orientations": [
+      "portrait",
+      "landscape",
+      "portrait"
+    ],
+    "manual_page_breaks": 2,
+    "image_count": 1,
+    "mixed_style_texts": [
+      "加粗术语",
+      "italic variable",
+      "underlined label",
+      "sample_id = A01"
+    ]
+  },
+  "visual_qa": {
+    "status": "pending_word_render",
+    "note": "Five pages are an intended layout, not a page-count claim before Word rendering."
+  }
+}

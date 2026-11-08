@@ -1,0 +1,4 @@
+interface:
+  display_name: "文澄 · Wencheng"
+  short_description: "在本地审阅中英文 DOCX，精确标注并生成自然、克制的修订建议"
+  default_prompt: "使用 $wencheng 审阅这份 DOCX，处理重复与机械化表达，保留原文论点、引用和格式。"
