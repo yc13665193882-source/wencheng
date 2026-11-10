@@ -10,7 +10,7 @@
 
 当前版本为早期候选版。Windows 上已完成实际浏览器、Codex CLI 和 Microsoft Word 验收；其他系统与最低 Python 版本的验证状态见[验收概览](docs/VALIDATION.md)。
 
-[安装 skill](#通过-skillssh-安装) · [下载运行包](https://github.com/yc13665193882-source/wencheng/releases/tag/v0.1.0-rc.1) · [图文演示](docs/DEMO.md) · [反馈问题](https://github.com/yc13665193882-source/wencheng/issues)
+[安装 skill](#通过-skillssh-安装) · [skills.sh 页面](https://www.skills.sh/yc13665193882-source/wencheng/wencheng) · [下载运行包](https://github.com/yc13665193882-source/wencheng/releases/tag/v0.1.0-rc.1) · [图文演示](docs/DEMO.md) · [反馈问题](https://github.com/yc13665193882-source/wencheng/issues)
 
 ![文澄中文演示：精确标注、比较建议、应用为 Word 修订](docs/media/wencheng-demo-zh.gif)
 
@@ -28,6 +28,8 @@
 ## 通过 skills.sh 安装
 
 需要 **Python 3.11+** 和 **Node.js 22.20+**。在准备使用 skill 的项目目录中执行，以下命令安装到当前项目，不改全局 skill：
+
+文澄的安装标识是 `wencheng`。下面的仓库地址可直接安装，无需先在目录搜索中找到它；[目录收录检查](docs/launch/SKILLS-DISCOVERY.md)单独记录搜索状态。
 
 ```text
 npx skills add yc13665193882-source/wencheng --skill wencheng --agent codex --copy --yes

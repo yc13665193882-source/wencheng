@@ -8,6 +8,8 @@
 
 安装入口为[中文 README](../../README.md#通过-skillssh-安装)和[English README](../../README.en.md#install-through-skillssh)。本地源安装 21 项、公开仓库安装 20 项检查均已通过，环境和验证范围见[安装验收报告](INSTALLATION-VALIDATION.md)。
 
+2026-11-10 已补做真实使用安装，核验收录请求送达及 skills.sh 详情页恢复；目录搜索仍需单独核验。原因、当前状态及只读复查命令见[目录收录记录](SKILLS-DISCOVERY.md)。
+
 | 文件 | 用途 |
 | --- | --- |
 | [中文介绍稿](announcement.zh-CN.md) | 仓库、项目网站及允许 AI 辅助文案的平台；可由维护者审阅后使用 |

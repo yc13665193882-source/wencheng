@@ -10,7 +10,7 @@ Use its skill from a Codex or Claude Code conversation, or call a configured mod
 
 This is an early release candidate. Browser workflows, Codex CLI, and Microsoft Word have been exercised on Windows. See [validation coverage](docs/VALIDATION.md) for platform and minimum-version limits.
 
-[Install the skill](#install-through-skillssh) · [Download the runtime](https://github.com/yc13665193882-source/wencheng/releases/tag/v0.1.0-rc.1) · [Demo walkthrough](docs/DEMO.md) · [Report an issue](https://github.com/yc13665193882-source/wencheng/issues)
+[Install the skill](#install-through-skillssh) · [skills.sh page](https://www.skills.sh/yc13665193882-source/wencheng/wencheng) · [Download the runtime](https://github.com/yc13665193882-source/wencheng/releases/tag/v0.1.0-rc.1) · [Demo walkthrough](docs/DEMO.md) · [Report an issue](https://github.com/yc13665193882-source/wencheng/issues)
 
 ![Wencheng in English: annotate a selection, compare a suggestion, apply a Word tracked change](docs/media/wencheng-demo-en.gif)
 
@@ -28,6 +28,8 @@ A slideshow of actual UI captures using synthetic sample text. Suggestions were 
 ## Install through skills.sh
 
 Requires **Python 3.11+** and **Node.js 22.20+**. Run these commands from the project where you want to use the skill. This installs into that project, without changing global skills:
+
+The installation name is `wencheng` (文澄). The repository command below works directly, even before the directory search returns the skill. [Directory verification](docs/launch/SKILLS-DISCOVERY.md) records search availability separately.
 
 ```text
 npx skills add yc13665193882-source/wencheng --skill wencheng --agent codex --copy --yes
