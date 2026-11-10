@@ -1,6 +1,6 @@
 ---
 name: wencheng
-description: Draft Chinese or English DOCX documents in conversation and open them in Wencheng for review, or revise existing documents using precisely anchored annotations while preserving structure, formulas, citations, comments, and tracked changes.
+description: Draft Chinese or English DOCX documents in conversation and open them in Wencheng (文澄) for review, or revise existing documents using precisely anchored annotations while preserving structure, formulas, citations, comments, and tracked changes.
 ---
 
 # 文澄 · Wencheng
