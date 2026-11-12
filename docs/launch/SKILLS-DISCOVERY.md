@@ -1,5 +1,15 @@
 # skills.sh discovery verification
 
+## Search verified on 2026-11-12
+
+At **14:29 UTC (22:29 China Standard Time)**, both full-site searches returned Wencheng. The English query `wencheng` returned it as the only result. The Chinese query `文澄` included it at position 98 in the 100 returned results, so `wencheng` is currently the more direct discovery query. Both entries identified `yc13665193882-source/wencheng/wencheng` and showed one recorded install.
+
+The official `skills@1.7.6 find wencheng` and `skills@1.7.6 find 文澄` commands also returned the correct installation source. These checks were read-only, with CLI telemetry disabled. The detail page rendered the actual skill content and showed `Installs 1` and `First Seen 2 days ago`.
+
+**English and Chinese search acceptance now passes.** The exact time of propagation is unknown; it occurred between the November 10 and November 12 checks. The one recorded install does not establish an external user, since the publisher's real local installation was already recorded during the earlier investigation. The prepared upstream issue was not submitted before the previous session was interrupted; no issue was filed after search recovered.
+
+## Initial registration check on 2026-11-10
+
 Checked on **2026-11-10 at 13:40 UTC (21:40 China Standard Time)**.
 
 **The skill detail page and downloadable snapshot are available. English and Chinese search did not yet return Wencheng. Direct installation works independently of search.**

@@ -8,7 +8,7 @@
 
 安装入口为[中文 README](../../README.md#通过-skillssh-安装)和[English README](../../README.en.md#install-through-skillssh)。本地源安装 21 项、公开仓库安装 20 项检查均已通过，环境和验证范围见[安装验收报告](INSTALLATION-VALIDATION.md)。
 
-2026-11-10 已补做真实使用安装，核验收录请求送达及 skills.sh 详情页恢复；目录搜索仍需单独核验。原因、当前状态及只读复查命令见[目录收录记录](SKILLS-DISCOVERY.md)。
+2026-11-10 已补做真实使用安装，核验收录请求送达及 skills.sh 详情页恢复。2026-11-12 复查已能用 `wencheng` 和 `文澄` 搜到本项目，官方 CLI Finder 也已通过；英文查询更直接，中文结果当前靠后。原因、当前状态及只读复查命令见[目录收录记录](SKILLS-DISCOVERY.md)。
 
 | 文件 | 用途 |
 | --- | --- |
